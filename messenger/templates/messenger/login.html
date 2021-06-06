@@ -9,15 +9,16 @@
 <body>
 <div class="login-box">
 	<h2>Login</h2>
-	<form id="login-form" action="login" method="POST">
+	<form id="login-form" action="" method="POST">
         {% csrf_token %}
         {{ form }}
+        {{ form.non_field_errors }}
 		<div class="user-box">
-			<input type="text" name="username" required="">
+			<input type="text" name="username" id="username" required="">
 			<label>Username</label>
 		</div>
 		<div class="user-box">
-			<input type="password">
+			<input type="password" name="password" id="password">
 			<label for="">Password</label>
 		</div>
 		<a href="javascript:{}" onclick="document.getElementById('login-form').submit();">

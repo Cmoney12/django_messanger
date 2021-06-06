@@ -7,17 +7,19 @@ from . import forms
 
 
 def login(request):
+    form = forms.LoginForm(request.POST)
     if request.method == 'POST':
-        form = forms.LoginForm()
         if form.is_valid():
             # process the data in form.cleaned_data as required
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
             # ...
             # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
+            return render(request, 'messenger/login.html')
         else:
             return render(request, 'messenger/login.html')
     else:
-        return render(request, 'messenger/login.html')
+        return render(request, 'messenger/login.html',  {'form': form})
 
 
 def register(request):
