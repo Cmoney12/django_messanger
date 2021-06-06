@@ -1,10 +1,15 @@
 from django.shortcuts import render
 
+from . import forms
+
 # Create your views here.
 
 
 def login(request):
-    return render(request, 'messenger/login.html')
+    if request.method == 'POST':
+        form = forms.LoginForm()
+    else:
+        return render(request, 'messenger/login.html')
 
 
 def register(request):
