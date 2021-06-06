@@ -23,4 +23,5 @@ def login(request):
 
 
 def register(request):
+    # foo_instance = Foo.objects.create(name='test')
     return render(request, 'messenger/register.html')
